@@ -1,122 +1,91 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import DecksScreen from './components/DecksScreen';
+import Header from './components/Header';
+
+const baseDecks = [
+  {
+    id: 1,
+    title: 'Coding',
+    meta: 'Last studied 2d ago',
+    sets: [
+      { id: 101, title: 'React', cardCount: 12, meta: '3 due today' },
+      {
+        id: 102,
+        cardCount: 0,
+        title: 'JavaScript',
+        meta: 'Last studied 1d ago',
+      },
+      { id: 103, title: 'CSS', cardCount: 10, meta: 'New' },
+    ],
+  },
+  {
+    id: 2,
+    title: 'Nature',
+    meta: 'New',
+    sets: [
+      { id: 201, title: 'Plants', cardCount: 8, meta: 'New' },
+      { id: 202, title: 'Animals', cardCount: 10, meta: 'New' },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Art',
+    meta: '5 due today',
+    sets: [
+      { id: 301, title: 'Paintings', cardCount: 2, meta: 'New' },
+      { id: 302, title: 'Artists', cardCount: 7, meta: 'New' },
+    ],
+  },
+  {
+    id: 4,
+    title: 'General Knowledge',
+    meta: '3 overdue',
+    sets: [
+      { id: 401, title: 'Geography', cardCount: 18, meta: 'New' },
+      { id: 402, title: 'History', cardCount: 3, meta: 'New' },
+      { id: 403, title: 'Music', cardCount: 13, meta: 'New' },
+    ],
+  },
+];
+
+const totalCards = baseDecks.reduce((sum, deck) => {
+  const deckTotal = deck.sets.reduce((sum, set) => {
+    return sum + set.cardCount;
+  }, 0);
+
+  return sum + deckTotal;
+}, 0);
+
+const allSets = baseDecks.flatMap((deck) => deck.sets);
+
+const allDeck = {
+  id: 'all',
+  title: 'All',
+  sets: allSets,
+  cardCount: totalCards,
+  meta: 'All cards',
+};
+
+const decks = [...baseDecks, allDeck];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedDeck, setSelectedDeck] = useState(null);
 
+  function handleSelectDeck(current) {
+    setSelectedDeck(current);
+    console.log(current);
+  }
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <div>
+      <Header />
+      <DecksScreen
+        decks={decks}
+        deck={selectedDeck}
+        onSelectDeck={handleSelectDeck}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;
