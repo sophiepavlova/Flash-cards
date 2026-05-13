@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import DecksScreen from './components/DecksScreen';
 import Header from './components/Header';
+import SetsScreen from './components/SetsScreen';
 
 const baseDecks = [
   {
@@ -67,23 +68,51 @@ const allDeck = {
   meta: 'All cards',
 };
 
+const allCategorySets = {
+  id: 405,
+  title: 'All Sets',
+  cardCount: totalCards,
+  meta: 'All cards',
+};
 const decks = [...baseDecks, allDeck];
 
 function App() {
+  const [screen, setScreen] = useState('decks');
   const [selectedDeck, setSelectedDeck] = useState(null);
+  const [selectedSet, setSelectedSet] = useState(null);
 
   function handleSelectDeck(current) {
     setSelectedDeck(current);
     console.log(current);
+    setScreen('sets');
+    console.log(screen);
   }
+
+  function handleSelectSet(current) {
+    setSelectedSet(current);
+    console.log(current);
+    setScreen('study');
+    console.log(screen);
+  }
+
   return (
     <div>
       <Header />
-      <DecksScreen
-        decks={decks}
-        deck={selectedDeck}
-        onSelectDeck={handleSelectDeck}
-      />
+      {screen === 'decks' && (
+        <DecksScreen
+          decks={decks}
+          deck={selectedDeck}
+          onSelectDeck={handleSelectDeck}
+        />
+      )}
+      {screen === 'sets' && (
+        <SetsScreen
+          sets={selectedDeck.sets}
+          selectedDeck={selectedDeck}
+          set={selectedSet}
+          onSelectSet={handleSelectSet}
+        />
+      )}
     </div>
   );
 }

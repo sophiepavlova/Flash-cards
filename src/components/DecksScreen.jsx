@@ -5,7 +5,7 @@ export default function DecksScreen({ decks, onSelectDeck }) {
   return (
     <div className='container'>
       <StudyIntro />
-      <MenuList decks={decks} onSelectDeck={onSelectDeck} />
+      <MenuList items={decks} onSelectItem={onSelectDeck} />
     </div>
   );
 }
