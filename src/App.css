@@ -3,6 +3,7 @@
   --text-secondary: #b6a975;
   --body-background-color: #faf3eb;
   --backgr-color-hover: #e2ddd4;
+  --question-card-color: #fffff5;
   --padding-sides: 102px;
   --font-size-captions: 14px;
   --font-size-display: 32px;
@@ -33,6 +34,16 @@ ul {
   font-family: 'Julius Sans One', sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+.kode-mono {
+  font-family: 'Kode Mono', monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  width: fit-content;
+  margin: 0 auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 .container-header {
   width: 100%;
@@ -65,7 +76,8 @@ ul {
   font-size: var(--font-size-display);
 }
 
-.intro-decks {
+.intro-decks,
+.question-category {
   font-size: var(--font-size-heading);
   color: var(--text-secondary);
 }
@@ -92,4 +104,18 @@ ul {
 .menu-item_name {
   font-size: var(--font-size-heading);
   font-weight: 600;
+}
+
+.question-card {
+  width: 906px;
+  height: 388px;
+  background-color: var(--question-card-color);
+  margin: 0 auto;
+  padding: 42px 32px;
+}
+
+.question-general {
+  font-size: 18px;
+  width: fit-content;
+  margin: 0 auto;
 }

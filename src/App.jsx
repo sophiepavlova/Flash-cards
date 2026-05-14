@@ -3,6 +3,7 @@ import './App.css';
 import DecksScreen from './components/DecksScreen';
 import Header from './components/Header';
 import SetsScreen from './components/SetsScreen';
+import StudyScreen from './StudyScreen';
 
 const baseDecks = [
   {
@@ -10,7 +11,70 @@ const baseDecks = [
     title: 'Coding',
     meta: 'Last studied 2d ago',
     sets: [
-      { id: 101, title: 'React', cardCount: 12, meta: '3 due today' },
+      {
+        id: 101,
+        title: 'React',
+        cardCount: 8,
+        meta: '3 due today',
+        cards: [
+          {
+            id: 1,
+            question: 'What will happen?',
+            code: '{isValid && <p>my cat</p>}',
+            answer:
+              'If isValid is true, React renders the paragraph. If false, React renders nothing.',
+          },
+          {
+            id: 2,
+            question: 'Why should we use keys in lists?',
+            code: 'items.map((item) => <li key={item.id}>{item.name}</li>)',
+            answer:
+              'Keys help React identify which items changed, were added, or removed during rerenders.',
+          },
+          {
+            id: 3,
+            question: 'What is props in React?',
+            code: '<Profile name="Sophie" />',
+            answer:
+              'Props are values passed from a parent component to a child component.',
+          },
+          {
+            id: 4,
+            question: 'What does useState return?',
+            code: 'const [count, setCount] = useState(0)',
+            answer:
+              'useState returns the current state value and a function to update it.',
+          },
+          {
+            id: 5,
+            question: 'What happens when state changes?',
+            code: 'setCount(count + 1)',
+            answer:
+              'React rerenders the component with the updated state value.',
+          },
+          {
+            id: 6,
+            question: 'What is conditional rendering?',
+            code: '{isLoggedIn ? <Dashboard /> : <Login />}',
+            answer:
+              'Conditional rendering shows different UI depending on a condition.',
+          },
+          {
+            id: 7,
+            question: 'Why do we use components?',
+            code: '<Button />',
+            answer:
+              'Components help split the UI into reusable and manageable pieces.',
+          },
+          {
+            id: 8,
+            question: 'What is the virtual DOM?',
+            code: '',
+            answer:
+              'The virtual DOM is a lightweight JavaScript representation of the real DOM.',
+          },
+        ],
+      },
       {
         id: 102,
         cardCount: 0,
@@ -113,6 +177,7 @@ function App() {
           onSelectSet={handleSelectSet}
         />
       )}
+      {screen === 'study' && <StudyScreen selectedSet={selectedSet} />}
     </div>
   );
 }
