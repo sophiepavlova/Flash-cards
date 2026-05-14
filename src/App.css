@@ -119,3 +119,37 @@ ul {
   width: fit-content;
   margin: 0 auto;
 }
+.study-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: var(--padding-sides);
+  padding-right: var(--padding-sides);
+  padding-top: 32px;
+  padding-bottom: 32px;
+  gap: 24px;
+}
+.study-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 24px;
+}
+
+.study-header-numbers {
+  font-size: 18px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e2ddd4;
+  width: 100%;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 75%;
+  background-color: #b6a975;
+}

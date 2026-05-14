@@ -3,7 +3,7 @@ import './App.css';
 import DecksScreen from './components/DecksScreen';
 import Header from './components/Header';
 import SetsScreen from './components/SetsScreen';
-import StudyScreen from './StudyScreen';
+import StudyScreen from './components/StudyScreen';
 
 const baseDecks = [
   {
