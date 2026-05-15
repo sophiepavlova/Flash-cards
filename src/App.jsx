@@ -164,6 +164,13 @@ function App() {
     console.log(screen);
   }
 
+  function handleBackToDecks() {
+    setScreen('decks');
+  }
+  function handleBackToSets() {
+    setScreen('sets');
+  }
+
   return (
     <div>
       <Header />
@@ -180,9 +187,12 @@ function App() {
           selectedDeck={selectedDeck}
           set={selectedSet}
           onSelectSet={handleSelectSet}
+          onBack={handleBackToDecks}
         />
       )}
-      {screen === 'study' && <StudyScreen selectedSet={selectedSet} />}
+      {screen === 'study' && (
+        <StudyScreen selectedSet={selectedSet} onBack={handleBackToSets} />
+      )}
     </div>
   );
 }

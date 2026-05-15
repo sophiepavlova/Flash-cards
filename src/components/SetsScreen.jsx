@@ -2,7 +2,12 @@ import StudyIntro from './StudyIntro';
 import MenuList from './MenuList';
 import StudyHeader from './StudyHeader';
 
-export default function SetsScreen({ sets, selectedDeck, onSelectSet }) {
+export default function SetsScreen({
+  sets,
+  selectedDeck,
+  onSelectSet,
+  onBack,
+}) {
   const totalCards = sets.reduce((sum, set) => {
     return sum + set.cardCount;
   }, 0);
@@ -18,7 +23,7 @@ export default function SetsScreen({ sets, selectedDeck, onSelectSet }) {
 
   return (
     <div className='container'>
-      <StudyHeader selectedSet={''} />
+      <StudyHeader onBack={onBack} />
       <StudyIntro selectedDeck={selectedDeck} />
       <MenuList items={setsWithAll} onSelectItem={onSelectSet} />
     </div>
