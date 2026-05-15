@@ -110,8 +110,8 @@ ul {
 }
 
 .question-card {
-  width: 906px;
-  height: 388px;
+  max-width: 906px;
+  height: 300px;
   background-color: var(--question-card-color);
   margin: 0 auto;
   padding: 42px 32px;
@@ -153,4 +153,22 @@ ul {
   height: 100%;
   width: 75%;
   background-color: #b6a975;
+}
+
+.reveal-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 25px clamp(40px, 12vw, 170px);
+
+  margin-top: 32px;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 2px solid var(--backgr-color-hover);
+  font-size: 18px;
+  max-width: 464px;
+}
+
+.reveal-btn:hover {
+  background-color: var(--text-black);
+  color: var(--backgr-color-hover);
 }
