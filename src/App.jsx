@@ -8,6 +8,7 @@ import StudyScreen from './components/StudyScreen';
 const baseDecks = [
   {
     id: 1,
+    type: 'deck',
     title: 'Coding',
     meta: 'Last studied 2d ago',
     sets: [
@@ -86,6 +87,7 @@ const baseDecks = [
   },
   {
     id: 2,
+    type: 'deck',
     title: 'Nature',
     meta: 'New',
     sets: [
@@ -95,6 +97,7 @@ const baseDecks = [
   },
   {
     id: 3,
+    type: 'deck',
     title: 'Art',
     meta: '5 due today',
     sets: [
@@ -104,6 +107,7 @@ const baseDecks = [
   },
   {
     id: 4,
+    type: 'deck',
     title: 'General Knowledge',
     meta: '3 overdue',
     sets: [
@@ -126,6 +130,7 @@ const allSets = baseDecks.flatMap((deck) => deck.sets);
 
 const allDeck = {
   id: 'all',
+  type: 'deck',
   title: 'All',
   sets: allSets,
   cardCount: totalCards,
