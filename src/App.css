@@ -4,6 +4,8 @@
   --body-background-color: #faf3eb;
   --backgr-color-hover: #e2ddd4;
   --question-card-color: #fffff5;
+  --answer-card-bgr: #ecf5e9;
+  --answer-card-title-color: #6a9956;
   --padding-sides: 102px;
   --font-size-captions: 14px;
   --font-size-display: 32px;
@@ -80,9 +82,13 @@ ul {
 }
 
 .intro-decks,
-.question-category {
+.question-category,
+.answer-category {
   font-size: var(--font-size-heading);
   color: var(--text-secondary);
+}
+.answer-category {
+  color: var(--answer-card-title-color);
 }
 .menu-item {
   display: flex;
@@ -109,18 +115,30 @@ ul {
   font-weight: 600;
 }
 
-.question-card {
+.question-card,
+.answer-card {
   max-width: 906px;
-  height: 300px;
+  /* height: 300px; */
   background-color: var(--question-card-color);
   margin: 0 auto;
   padding: 42px 32px;
+}
+.answer-card {
+  background-color: var(--answer-card-bgr);
 }
 
 .question-general {
   font-size: 18px;
   width: fit-content;
   margin: 0 auto;
+}
+.answer-general {
+  font-size: 16px;
+  font-weight: 400;
+  width: fit-content;
+  margin: 0 auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 .study-header {
   display: flex;
@@ -161,6 +179,7 @@ ul {
   padding: 25px clamp(40px, 12vw, 170px);
 
   margin-top: 32px;
+  margin-bottom: 32px;
   background-color: transparent;
   border-radius: 8px;
   border: 2px solid var(--backgr-color-hover);
@@ -171,4 +190,67 @@ ul {
 .reveal-btn:hover {
   background-color: var(--text-black);
   color: var(--backgr-color-hover);
+}
+
+.ratings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.ratings-container {
+  display: flex;
+  gap: 16px;
+}
+.rating-container {
+  border: 1px solid var(--text-black);
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.rating-container:hover {
+  background-color: var(--text-secondary);
+}
+.ratings-title {
+  font-size: var(--font-size-heading);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.rating-title {
+  font-size: var(--font-size-heading);
+}
+.icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.icon-empty {
+  border: 3px solid var(--text-black);
+}
+
+.icon-half {
+  /* border: 1px solid var(--text-black); */
+  overflow: hidden;
+}
+
+.icon-half::before {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: var(--text-black);
+  margin-left: auto;
+}
+
+.icon-full {
+  background: var(--text-black);
 }
