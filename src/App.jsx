@@ -4,6 +4,7 @@ import DecksScreen from './components/DecksScreen';
 import Header from './components/Header';
 import SetsScreen from './components/SetsScreen';
 import StudyScreen from './components/StudyScreen';
+import ResultsScreen from './components/ResultsScreen';
 
 const baseDecks = [
   {
@@ -91,7 +92,30 @@ const baseDecks = [
     title: 'Nature',
     meta: 'New',
     sets: [
-      { id: 201, title: 'Plants', cardCount: 8, meta: 'New' },
+      {
+        id: 201,
+        title: 'Plants',
+        cards: [
+          {
+            id: 1,
+            question: 'What plant is this?',
+            image:
+              'https://images.unsplash.com/photo-1501004318641-b39e6451bec6',
+            answer:
+              'This is a Monstera deliciosa, a tropical plant known for its large split leaves.',
+          },
+          {
+            id: 2,
+            question: 'What plant is this?',
+            image:
+              'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735',
+            answer:
+              'This is a sunflower, a tall flowering plant that turns toward the sun while growing.',
+          },
+        ],
+        cardCount: 2,
+        meta: 'New',
+      },
       { id: 202, title: 'Animals', cardCount: 10, meta: 'New' },
     ],
   },
@@ -171,6 +195,10 @@ function App() {
     setScreen('sets');
   }
 
+  function showResultsScreen() {
+    setScreen('results');
+  }
+
   return (
     <div>
       <Header />
@@ -191,7 +219,17 @@ function App() {
         />
       )}
       {screen === 'study' && (
-        <StudyScreen selectedSet={selectedSet} onBack={handleBackToSets} />
+        <StudyScreen
+          selectedSet={selectedSet}
+          onBack={handleBackToSets}
+          showResultsScreen={showResultsScreen}
+        />
+      )}
+      {screen === 'results' && (
+        <ResultsScreen
+          selectedSet={selectedSet}
+          handleBack={handleBackToSets}
+        />
       )}
     </div>
   );

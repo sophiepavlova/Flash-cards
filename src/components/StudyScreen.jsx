@@ -2,7 +2,11 @@ import QuestionCard from './QuestionCard';
 import AnswerCard from './AnswerCard';
 import StudyHeader from './StudyHeader';
 import { useState } from 'react';
-export default function StudyScreen({ selectedSet, onBack }) {
+export default function StudyScreen({
+  selectedSet,
+  onBack,
+  showResultsScreen,
+}) {
   const [showAnswer, setShowAnswer] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -12,11 +16,16 @@ export default function StudyScreen({ selectedSet, onBack }) {
 
   function handleRateQuestion(rate) {
     const newAnswers = [...answers, { cardId: currentCard.id, rating: rate }];
+
     setShowAnswer(false);
     setAnswers(newAnswers);
-    console.log(answers);
+    console.log(newAnswers);
+
     currentCardIndex < selectedSet.cards.length - 1 &&
       setCurrentCardIndex(currentCardIndex + 1);
+    if (currentCardIndex === selectedSet.cards.length - 1) {
+      showResultsScreen();
+    }
   }
 
   function handleBack() {

@@ -254,3 +254,11 @@ ul {
 .icon-full {
   background: var(--text-black);
 }
+
+.card-image {
+  padding-top: 32px;
+  display: block;
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto;
+}
