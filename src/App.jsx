@@ -6,6 +6,15 @@ import SetsScreen from './components/SetsScreen';
 import StudyScreen from './components/StudyScreen';
 import ResultsScreen from './components/ResultsScreen';
 
+// screen: 'decks' | 'sets' | 'study' | 'results'
+// selectedDeck: deck object or null
+// selectedSet: set object or null
+// answers: [{ cardId: number, rating: 'No idea' | 'Unsure' | 'Knew it' }]
+
+// deck = { id, title, meta, sets }
+// set = { id, title, meta, cardCount, cards }
+// card = { id, question, code, image, answer }
+
 const baseDecks = [
   {
     id: 1,
@@ -173,6 +182,7 @@ function App() {
   const [screen, setScreen] = useState('decks');
   const [selectedDeck, setSelectedDeck] = useState(null);
   const [selectedSet, setSelectedSet] = useState(null);
+  const [answers, setAnswers] = useState([]);
 
   function handleSelectDeck(current) {
     setSelectedDeck(current);
@@ -199,6 +209,10 @@ function App() {
     setScreen('results');
   }
 
+  function handleResetAnswers() {
+    setAnswers([]);
+  }
+
   return (
     <div>
       <Header />
@@ -223,12 +237,17 @@ function App() {
           selectedSet={selectedSet}
           onBack={handleBackToSets}
           showResultsScreen={showResultsScreen}
+          answers={answers}
+          setAnswers={setAnswers}
         />
       )}
       {screen === 'results' && (
         <ResultsScreen
+          setScreen={setScreen}
           selectedSet={selectedSet}
           handleBack={handleBackToSets}
+          answers={answers}
+          handleResetAnswers={handleResetAnswers}
         />
       )}
     </div>

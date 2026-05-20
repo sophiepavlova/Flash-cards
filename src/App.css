@@ -11,7 +11,15 @@
   --font-size-display: 32px;
   --font-size-heading: 20px;
   --max-width-item-list: 400px;
+  --color-knew-it: #c6e2b4;
+  --color-unsure: #ffebb5;
+  --color-no-idea: #ffc2b6;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background-color: var(--body-background-color);
@@ -21,6 +29,7 @@ body {
   font-variation-settings: 'wdth' 100;
 }
 .container {
+  width: 100%;
   padding: 36px 102px;
 }
 
@@ -157,6 +166,10 @@ ul {
   gap: 24px;
 }
 
+.no-arrow {
+  justify-content: flex-end;
+}
+
 .study-header-numbers {
   font-size: 18px;
 }
@@ -169,14 +182,17 @@ ul {
 
 .progress-fill {
   height: 100%;
-  width: 75%;
+  /* width: 75%; */
   background-color: #b6a975;
+  transition: width 0.3s ease;
 }
 
 .reveal-btn {
   display: block;
   margin: 0 auto;
-  padding: 25px clamp(40px, 12vw, 170px);
+  width: min(100%, 420px);
+  padding: 25px 40px;
+  text-align: center;
 
   margin-top: 32px;
   margin-bottom: 32px;
@@ -187,7 +203,25 @@ ul {
   max-width: 464px;
 }
 
-.reveal-btn:hover {
+.results-btns {
+  margin-top: 32px;
+}
+
+.results-btn {
+  display: block;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 2px solid var(--backgr-color-hover);
+  font-size: 18px;
+  width: min(100%, 420px);
+  padding: 25px 40px;
+  text-align: center;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.reveal-btn:hover,
+.results-btn:hover {
   background-color: var(--text-black);
   color: var(--backgr-color-hover);
 }
@@ -261,4 +295,60 @@ ul {
   max-width: 500px;
   height: auto;
   margin: 0 auto;
+}
+.diagram {
+  display: flex;
+  flex-direction: column;
+  max-width: 386px;
+  align-items: center;
+}
+
+.percents {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 386px;
+}
+
+.percents-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cirlce {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.percents-text {
+  font-weight: 400;
+  font-size: var(--font-size-heading);
+}
+
+.percent-value {
+  font-weight: 400;
+  font-size: var(--font-size-heading);
+}
+
+.diagram .knew-it {
+  background-color: var(--color-knew-it);
+}
+.diagram .unsure {
+  background-color: var(--color-unsure);
+}
+.diagram .no-idea {
+  background-color: var(--color-no-idea);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 36px 48px;
+  }
 }

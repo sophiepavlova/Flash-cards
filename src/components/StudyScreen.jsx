@@ -6,10 +6,12 @@ export default function StudyScreen({
   selectedSet,
   onBack,
   showResultsScreen,
+  answers,
+  setAnswers,
 }) {
   const [showAnswer, setShowAnswer] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [answers, setAnswers] = useState([]);
+
   function handleRevealButton() {
     setShowAnswer(true);
   }
