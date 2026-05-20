@@ -37,6 +37,11 @@ export default function ResultsScreen({
     handleResetAnswers();
     setScreen('study');
   }
+
+  function handleChooseAnotherSet() {
+    handleResetAnswers();
+    setScreen('sets');
+  }
   return (
     <div className='results-screen'>
       <div className='container'>
@@ -91,7 +96,9 @@ export default function ResultsScreen({
           <button className='results-btn btn' onClick={handleStudyAgain}>
             Study again
           </button>
-          <button className='results-btn btn'>Choose another set</button>
+          <button className='results-btn btn' onClick={handleChooseAnotherSet}>
+            Choose another set
+          </button>
         </div>
       </div>
     </div>
