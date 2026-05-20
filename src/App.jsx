@@ -213,9 +213,14 @@ function App() {
     setAnswers([]);
   }
 
+  function handleGoHome() {
+    setScreen('decks');
+    setAnswers([]);
+  }
+
   return (
     <div>
-      <Header />
+      <Header onGoHome={handleGoHome} />
       {screen === 'decks' && (
         <DecksScreen
           decks={decks}
