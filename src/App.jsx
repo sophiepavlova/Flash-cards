@@ -88,11 +88,87 @@ const baseDecks = [
       },
       {
         id: 102,
-        cardCount: 0,
         title: 'JavaScript',
+        cardCount: 4,
         meta: 'Last studied 1d ago',
+        cards: [
+          {
+            id: 1,
+            question: 'What is the difference between let and const?',
+            code: '',
+            image: '',
+            answer:
+              'let is used for values that can change. const is used for values that should not be reassigned.',
+          },
+          {
+            id: 2,
+            question: 'What will this return?',
+            code: '[1, 2, 3].map((number) => number * 2)',
+            image: '',
+            answer:
+              'It returns a new array: [2, 4, 6]. map transforms each item.',
+          },
+          {
+            id: 3,
+            question: 'What does filter do?',
+            code: '[1, 2, 3, 4].filter((number) => number > 2)',
+            image: '',
+            answer:
+              'filter returns a new array with only the items that match the condition: [3, 4].',
+          },
+          {
+            id: 4,
+            question: 'What does reduce do?',
+            code: '[1, 2, 3].reduce((sum, number) => sum + number, 0)',
+            image: '',
+            answer:
+              'reduce combines array values into one final value. Here it returns 6.',
+          },
+        ],
       },
-      { id: 103, title: 'CSS', cardCount: 10, meta: 'New' },
+      {
+        id: 103,
+        title: 'CSS',
+        cards: [
+          {
+            id: 1,
+            question: 'What does display: flex do?',
+            code: 'display: flex;',
+            image: '',
+            answer:
+              'It turns an element into a flex container and allows easier alignment and layout of child elements.',
+          },
+          {
+            id: 2,
+            question: 'How do you center items horizontally in flexbox?',
+            code: `
+                display: flex;
+                justify-content: center;
+                 `,
+            image: '',
+            answer:
+              'justify-content controls alignment along the main axis. center places items in the middle horizontally.',
+          },
+          {
+            id: 3,
+            question: 'What property creates space between flex items?',
+            code: 'gap: 16px;',
+            image: '',
+            answer:
+              'gap adds consistent spacing between flex or grid children without using margins.',
+          },
+          {
+            id: 4,
+            question: 'What does width: 100% mean?',
+            code: 'width: 100%;',
+            image: '',
+            answer:
+              'The element takes up 100% of the width of its parent container.',
+          },
+        ],
+        cardCount: 4,
+        meta: 'New',
+      },
     ],
   },
   {
@@ -170,12 +246,12 @@ const allDeck = {
   meta: 'All cards',
 };
 
-const allCategorySets = {
-  id: 405,
-  title: 'All Sets',
-  cardCount: totalCards,
-  meta: 'All cards',
-};
+// const allCategorySets = {
+//   id: 405,
+//   title: 'All Sets',
+//   cardCount: totalCards,
+//   meta: 'All cards',
+// };
 const decks = [...baseDecks, allDeck];
 
 function App() {
@@ -183,6 +259,22 @@ function App() {
   const [selectedDeck, setSelectedDeck] = useState(null);
   const [selectedSet, setSelectedSet] = useState(null);
   const [answers, setAnswers] = useState([]);
+
+  const allCardsInSelectedDeck = selectedDeck
+    ? selectedDeck.sets.flatMap((set) => set.cards || [])
+    : [];
+
+  const allSetInSelectedDeck = {
+    id: 'all-sets',
+    title: 'All',
+    cardCount: allCardsInSelectedDeck.length,
+    meta: 'All cards',
+    cards: allCardsInSelectedDeck,
+  };
+
+  const setsWithAll = selectedDeck
+    ? [...selectedDeck.sets, allSetInSelectedDeck]
+    : [];
 
   function handleSelectDeck(current) {
     setSelectedDeck(current);
@@ -230,7 +322,7 @@ function App() {
       )}
       {screen === 'sets' && (
         <SetsScreen
-          sets={selectedDeck.sets}
+          sets={setsWithAll}
           selectedDeck={selectedDeck}
           set={selectedSet}
           onSelectSet={handleSelectSet}

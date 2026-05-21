@@ -8,24 +8,11 @@ export default function SetsScreen({
   onSelectSet,
   onBack,
 }) {
-  const totalCards = sets.reduce((sum, set) => {
-    return sum + set.cardCount;
-  }, 0);
-
-  const allSet = {
-    id: 'all-sets',
-    title: 'All',
-    cardCount: totalCards,
-    meta: 'All cards in this deck',
-  };
-
-  const setsWithAll = [...sets, allSet];
-
   return (
     <div className='container'>
       <StudyHeader onBack={onBack} />
       <StudyIntro selectedDeck={selectedDeck} />
-      <MenuList items={setsWithAll} onSelectItem={onSelectSet} />
+      <MenuList items={sets} onSelectItem={onSelectSet} />
     </div>
   );
 }
