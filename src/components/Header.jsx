@@ -9,7 +9,7 @@ export default function Header({ onGoHome }) {
         ></img>
         {/* <img src='./src/assets/Aloy_sticker 1.png' onClick={onGoHome}></img> */}
         <p className='accent-font logo-font' onClick={onGoHome}>
-          NewHorizons
+          Studyngton
         </p>
       </div>
       <div className='separator-full'></div>
