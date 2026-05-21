@@ -72,10 +72,14 @@ ul {
   padding-bottom: 12px;
 }
 
-.separator-full {
+/* .separator-full {
   background-color: var(--text-black);
-  height: 2px;
+  height: 1px;
   width: 100%;
+} */
+.header-img {
+  width: 100px;
+  height: auto;
 }
 .logo-font {
   font-size: 20px;
@@ -292,7 +296,7 @@ ul {
 .card-image {
   padding-top: 32px;
   display: block;
-  max-width: 500px;
+  width: min(100%, 500px);
   height: auto;
   margin: 0 auto;
 }
@@ -348,7 +352,8 @@ ul {
 }
 
 @media (max-width: 600px) {
-  .container {
+  .container,
+  .header-wrapper {
     padding: 36px 48px;
   }
 }
