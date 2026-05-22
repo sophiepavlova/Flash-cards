@@ -63,7 +63,7 @@ export default function StudyScreen({
                 onClick={() => handleRateQuestion('No idea')}
               >
                 <div className='icon icon-empty'></div>
-                <p className='rating-title'>No idea</p>
+                <p className='rating-title rating-title-1'>No idea</p>
                 <p className='rating-subtitle'>Review again</p>
               </div>
 
@@ -72,7 +72,7 @@ export default function StudyScreen({
                 onClick={() => handleRateQuestion('Unsure')}
               >
                 <div className='icon icon-half'></div>
-                <p className='rating-title'>Unsure</p>
+                <p className='rating-title rating-title-2'>Unsure</p>
                 <p className='rating-subtitle'>Getting there</p>
               </div>
 
@@ -81,7 +81,7 @@ export default function StudyScreen({
                 onClick={() => handleRateQuestion('Knew it')}
               >
                 <div className='icon icon-full'></div>
-                <p className='rating-title'>Knew it</p>
+                <p className='rating-title rating-title-3'>Knew it</p>
                 <p className='rating-subtitle'>Well done!</p>
               </div>
             </div>

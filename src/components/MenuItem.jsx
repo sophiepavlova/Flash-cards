@@ -3,17 +3,22 @@ export default function MenuItem({ item, onSelectItem }) {
   const cardsCount = item.sets?.reduce((sum, set) => sum + set.cardCount, 0);
   return (
     <li className='menu-item' onClick={() => onSelectItem(item)}>
-      <p
-        className={
-          item.type === 'deck' ? 'menu-item_name capitalized' : 'menu-item_name'
-        }
-      >
-        {item.title}
-      </p>
-      <div className='menu-item_subs'>
-        <p className='menu-item_subs_info1'>{cardsCount} cards</p>
-        <p className='menu-item_subs_info2'>{item.meta}</p>
+      <div className='menu-ltem-left'>
+        <p
+          className={
+            item.type === 'deck'
+              ? 'menu-item_name capitalized'
+              : 'menu-item_name'
+          }
+        >
+          {item.title}
+        </p>
+        <div className='menu-item_subs'>
+          <p className='menu-item_subs_info1'>{cardsCount} cards</p>
+          <p className='menu-item_subs_info2'>{item.meta}</p>
+        </div>
       </div>
+      <div class='deck-arrow'>→</div>
     </li>
   );
 }
