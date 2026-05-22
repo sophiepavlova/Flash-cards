@@ -68,7 +68,7 @@ function App() {
 
   function handleSelectSet(current) {
     setSelectedSet(current);
-    console.log(current);
+    // console.log(current);
     setScreen('study');
     // console.log(screen);
   }

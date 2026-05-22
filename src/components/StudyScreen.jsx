@@ -11,6 +11,9 @@ export default function StudyScreen({
 }) {
   const [showAnswer, setShowAnswer] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [shuffledCards] = useState(() =>
+    [...selectedSet.cards].sort(() => Math.random() - 0.5),
+  );
 
   function handleRevealButton() {
     setShowAnswer(true);
@@ -21,7 +24,7 @@ export default function StudyScreen({
 
     setShowAnswer(false);
     setAnswers(newAnswers);
-    console.log(newAnswers);
+    // console.log(newAnswers);
 
     currentCardIndex < selectedSet.cards.length - 1 &&
       setCurrentCardIndex(currentCardIndex + 1);
@@ -35,7 +38,7 @@ export default function StudyScreen({
     onBack();
   }
 
-  const currentCard = selectedSet.cards[currentCardIndex];
+  const currentCard = shuffledCards[currentCardIndex];
   return (
     <div className='container'>
       <div className='study-screen'>
