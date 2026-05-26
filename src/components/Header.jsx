@@ -4,7 +4,7 @@ export default function Header({ onGoHome }) {
       <div className='header-wrapper'>
         <img
           className='header-img'
-          src='./src/assets/paddington.webp'
+          src='/images/paddington.webp'
           onClick={onGoHome}
         ></img>
         {/* <img src='./src/assets/Aloy_sticker 1.png' onClick={onGoHome}></img> */}
