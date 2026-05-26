@@ -349,7 +349,8 @@ ul {
 }
 
 .rating-container:hover {
-  background-color: var(--text-secondary);
+  /* background-color: var(--text-secondary); */
+  background-color: var(--question-card-color);
 }
 .ratings-title {
   font-size: var(--font-size-captions);
