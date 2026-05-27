@@ -94,6 +94,10 @@ export default function ResultsScreen({
             </div>
           </div>
           <div className='results-btns'>
+            <img
+              className='list-illustration list-illustration-no-reflect list-illustration-remove'
+              src='/images/puddington4.webp'
+            ></img>
             <button className='results-btn btn' onClick={handleStudyAgain}>
               Study again
             </button>

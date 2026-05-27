@@ -4,8 +4,8 @@ export default function QuestionCard({ currentCard }) {
       <h1 className='question-category'>✦ Question</h1>
       <h2 className='question-general'>{currentCard.question}</h2>
       {currentCard.code && <p className='kode-mono'>{currentCard.code}</p>}
-      {currentCard.image && (
-        <img src={currentCard.image} className='card-image'></img>
+      {currentCard.images && (
+        <img src={currentCard.images[0]} className='card-image' />
       )}
     </div>
   );
