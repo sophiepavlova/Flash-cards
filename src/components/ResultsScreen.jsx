@@ -1,6 +1,6 @@
 import StudyHeader from './StudyHeader';
 import { PieChart, Pie, Cell } from 'recharts';
-import StudyScreen from './StudyScreen';
+// import StudyScreen from './StudyScreen';
 
 export default function ResultsScreen({
   selectedSet,
