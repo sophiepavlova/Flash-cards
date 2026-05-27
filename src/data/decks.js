@@ -224,8 +224,41 @@ export const baseDecks = [
             image: '/images/Camellia.jpeg',
             answer: 'Camellia',
           },
+          {
+            id: 6,
+            question: 'What flower is shown in the image?',
+            code: '',
+            image: '/images/Califirnia_lilac.jpeg',
+            answer:
+              'Califirnia lilac. Despite the name, it’s not actually related to true lilacs at all. Bees love them',
+          },
+          {
+            id: 7,
+            question: 'What flower is shown in the image?',
+            code: '',
+            image: '/images/Cotoneaster.jpeg',
+            answer:
+              'Cotoneaster. The red berries are a huge bird snack in fall and winter.The branches often grow in a fishbone/herringbone pattern, which gardeners like because it looks decorative even in winter.',
+          },
         ],
-        cardCount: 5,
+        cardCount: 7,
+        meta: 'New',
+      },
+
+      {
+        id: 203,
+        title: 'Birds',
+        cards: [
+          {
+            id: 1,
+            question: 'What flower is shown in the image?',
+            code: '',
+            image: '/images/Black-capped Chickadee.jpeg',
+            answer:
+              'Black-capped Chickadee. (ˈCHikəˌdē), синица. They remember thousands of hiding spots for seeds.',
+          },
+        ],
+        cardCount: 1,
         meta: 'New',
       },
     ],
