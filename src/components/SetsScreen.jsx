@@ -12,7 +12,13 @@ export default function SetsScreen({
     <div className='container'>
       <StudyHeader onBack={onBack} />
       <StudyIntro selectedDeck={selectedDeck} />
-      <MenuList items={sets} onSelectItem={onSelectSet} />
+      <div className='list-with-picture'>
+        <MenuList items={sets} onSelectItem={onSelectSet} />
+        <img
+          className='list-illustration list-illustration-no-reflect'
+          src='/images/puddington3.webp'
+        ></img>
+      </div>
     </div>
   );
 }

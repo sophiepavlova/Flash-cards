@@ -5,7 +5,10 @@ export default function DecksScreen({ decks, onSelectDeck }) {
   return (
     <div className='container'>
       <StudyIntro />
-      <MenuList items={decks} onSelectItem={onSelectDeck} />
+      <div className='list-with-picture'>
+        <MenuList items={decks} onSelectItem={onSelectDeck} />
+        <img className='list-illustration' src='/images/puddington2.webp'></img>
+      </div>
     </div>
   );
 }

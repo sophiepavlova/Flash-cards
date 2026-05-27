@@ -139,6 +139,9 @@ ul {
   margin-left: 8px;
   align-self: center;
 }
+.menu-list {
+  width: 400px;
+}
 
 .menu-item {
   display: flex;
@@ -168,6 +171,34 @@ ul {
 .menu-item_name {
   font-size: var(--font-size-heading);
   font-weight: 600;
+}
+.list-with-picture {
+  display: flex;
+  align-items: flex-start;
+  /* align-items: center; */
+  gap: 34px;
+}
+
+.list-illustration {
+  transform: scaleX(-1);
+  max-width: 400px;
+}
+
+.list-illustration-no-reflect {
+  transform: none;
+}
+
+@media (max-width: 990px) {
+  .list-illustration {
+    max-width: 200px;
+    /* align-self: flex-end; */
+  }
+}
+
+@media (max-width: 790px) {
+  .list-illustration {
+    display: none;
+  }
 }
 
 .question-card,
