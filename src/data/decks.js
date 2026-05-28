@@ -241,8 +241,28 @@ export const baseDecks = [
             answer:
               'Cotoneaster. The red berries are a huge bird snack in fall and winter.The branches often grow in a fishbone/herringbone pattern, which gardeners like because it looks decorative even in winter.',
           },
+          {
+            id: 8,
+            question: 'What flower is shown in the image?',
+            code: '',
+            images: [
+              '/images/Rhododendron1.jpeg',
+              '/images/Rhododendron2.jpeg',
+              '/images/Rhododendron3.jpeg',
+              '/images/Rhododendron4.jpeg',
+            ],
+            answer: 'Rhododendron',
+
+            facts: [
+              'Rhododendrons can live for a very long time. Some become almost tree-sized,',
+              'They’re part of the blueberry family 🫐',
+              'Vancouver and Victoria are kind of rhododendron heaven because of the climate.',
+              'Some species are mildly toxic to humans and pets. Even the nectar can be toxic in large amounts.',
+              'There’s a thing called “mad honey” made from rhododendron nectar that historically caused hallucinations and poisoning in some regions 😭',
+            ],
+          },
         ],
-        cardCount: 7,
+        cardCount: 8,
         meta: 'New',
       },
 
