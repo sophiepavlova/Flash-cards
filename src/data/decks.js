@@ -287,7 +287,10 @@ export const baseDecks = [
             id: 2,
             question: 'Can you name this bird?',
             code: '',
-            images: ['/images/Dark-eyed Junco.jpeg'],
+            images: [
+              '/images/Dark-eyed Junco.jpeg',
+              '/images/Dark-eyed Junco1.jpeg',
+            ],
             answer: 'Dark-eyed Junco',
             facts: [
               'Темноглазые юнко — это аккуратные, даже яркие маленькие воробьи',

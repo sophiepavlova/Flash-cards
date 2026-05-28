@@ -47,7 +47,7 @@ export default function StudyScreen({
           currentCardNumber={currentCardIndex}
           onBack={handleBack}
         />
-        <QuestionCard currentCard={currentCard} />
+        <QuestionCard key={currentCard.id} currentCard={currentCard} />
         {!showAnswer && (
           <button className='reveal-btn btn' onClick={handleRevealButton}>
             Reveal answer

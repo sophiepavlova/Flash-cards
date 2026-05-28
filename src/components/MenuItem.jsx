@@ -18,7 +18,7 @@ export default function MenuItem({ item, onSelectItem }) {
           <p className='menu-item_subs_info2'>{item.meta}</p>
         </div>
       </div>
-      <div class='deck-arrow'>→</div>
+      <div className='deck-arrow'>→</div>
     </li>
   );
 }
