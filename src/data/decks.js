@@ -15,6 +15,7 @@ export const baseDecks = [
             id: 1,
             question: 'What will happen?',
             code: '{isValid && <p>my cat</p>}',
+            images: [],
             answer:
               'If isValid is true, React renders the paragraph. If false, React renders nothing.',
           },
@@ -22,6 +23,7 @@ export const baseDecks = [
             id: 2,
             question: 'Why should we use keys in lists?',
             code: 'items.map((item) => <li key={item.id}>{item.name}</li>)',
+            images: [],
             answer:
               'Keys help React identify which items changed, were added, or removed during rerenders.',
           },
@@ -29,6 +31,7 @@ export const baseDecks = [
             id: 3,
             question: 'What is props in React?',
             code: '<Profile name="Sophie" />',
+            images: [],
             answer:
               'Props are values passed from a parent component to a child component.',
           },
@@ -36,6 +39,7 @@ export const baseDecks = [
             id: 4,
             question: 'What does useState return?',
             code: 'const [count, setCount] = useState(0)',
+            images: [],
             answer:
               'useState returns the current state value and a function to update it.',
           },
@@ -43,6 +47,7 @@ export const baseDecks = [
             id: 5,
             question: 'What happens when state changes?',
             code: 'setCount(count + 1)',
+            images: [],
             answer:
               'React rerenders the component with the updated state value.',
           },
@@ -50,6 +55,7 @@ export const baseDecks = [
             id: 6,
             question: 'What is conditional rendering?',
             code: '{isLoggedIn ? <Dashboard /> : <Login />}',
+            images: [],
             answer:
               'Conditional rendering shows different UI depending on a condition.',
           },
@@ -57,6 +63,7 @@ export const baseDecks = [
             id: 7,
             question: 'Why do we use components?',
             code: '<Button />',
+            images: [],
             answer:
               'Components help split the UI into reusable and manageable pieces.',
           },
@@ -64,6 +71,7 @@ export const baseDecks = [
             id: 8,
             question: 'What is the virtual DOM?',
             code: '',
+            images: [],
             answer:
               'The virtual DOM is a lightweight JavaScript representation of the real DOM.',
           },
@@ -161,32 +169,6 @@ export const baseDecks = [
     meta: 'New',
     sets: [
       {
-        id: 201,
-        title: 'Plants',
-        cards: [
-          {
-            id: 1,
-            question: 'What plant is this?',
-            images: [
-              'https://images.unsplash.com/photo-1501004318641-b39e6451bec6',
-            ],
-            answer:
-              'This is a Monstera deliciosa, a tropical plant known for its large split leaves.',
-          },
-          {
-            id: 2,
-            question: 'What plant is this?',
-            images: [
-              'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735',
-            ],
-            answer:
-              'This is a sunflower, a tall flowering plant that turns toward the sun while growing.',
-          },
-        ],
-        cardCount: 2,
-        meta: 'New',
-      },
-      {
         id: 202,
         title: 'Flowers',
         cards: [
@@ -275,6 +257,7 @@ export const baseDecks = [
             question: 'Can you name this bird?',
             code: '',
             images: ['/images/Black-capped Chickadee.jpeg'],
+            audio: '/audio/chickadee-song.mp3',
             answer: 'Black-capped Chickadee',
             facts: [
               'ˈCHikəˌdē, синица',
@@ -291,6 +274,7 @@ export const baseDecks = [
               '/images/Dark-eyed Junco.jpeg',
               '/images/Dark-eyed Junco1.jpeg',
             ],
+            audio: '/audio/Dark-eyed-Junco.mp3',
             answer: 'Dark-eyed Junco',
             facts: [
               'Темноглазые юнко — это аккуратные, даже яркие маленькие воробьи',
@@ -321,6 +305,32 @@ export const baseDecks = [
           },
         ],
         cardCount: 3,
+        meta: 'New',
+      },
+      {
+        id: 201,
+        title: 'Plants',
+        cards: [
+          {
+            id: 1,
+            question: 'What plant is this?',
+            images: [
+              'https://images.unsplash.com/photo-1501004318641-b39e6451bec6',
+            ],
+            answer:
+              'This is a Monstera deliciosa, a tropical plant known for its large split leaves.',
+          },
+          {
+            id: 2,
+            question: 'What plant is this?',
+            images: [
+              'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735',
+            ],
+            answer:
+              'This is a sunflower, a tall flowering plant that turns toward the sun while growing.',
+          },
+        ],
+        cardCount: 2,
         meta: 'New',
       },
     ],
