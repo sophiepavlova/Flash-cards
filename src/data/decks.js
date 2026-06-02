@@ -409,6 +409,41 @@ export const baseDecks = [
     sets: [
       {
         id: 401,
+        title: 'Characters',
+        cards: [
+          {
+            id: 1,
+            question: 'Who is this?',
+            code: '',
+            images: ['/images/lucy.avif'],
+            answer: 'Lucy',
+            facts: [
+              'FIRST APPEARANCE: March 3, 1952',
+              'Though she’s often dismissed as simply bossy or crabby, there’s more to Lucy than strong opinions. She dispenses sound advice for just five cents and looks out for her brothers, Linus and Rerun.',
+              'She’s confident, strong, and positive she’ll make a great president or queen one day.',
+              'Her biggest weakness is her unrequited love for Schroeder… *sigh*. Never fall in love with a musician.',
+            ],
+          },
+          {
+            id: 1,
+            question: 'Who is this?',
+            code: '',
+            images: ['/images/linus.avif'],
+            answer: 'Linus',
+            facts: [
+              'FIRST APPEARANCE: September 19, 1952',
+              ' Thoughtful and respectful, Linus is often the voice of reason among his peers. He is a deep thinker and a student of philosophy.',
+              'Despite his run-ins with cantankerous Lucy, and the fact no one understands why he carries a security blanket, Linus remains delightfully hopeful. He’s certain that this year, the Great Pumpkin will appear…he just knows it… ',
+              'DID YOU KNOW: Linus wore glasses for a short time. Snoopy constantly stole them to torment him.',
+              '"Linus, my serious side, is the house intellectual, bright, well-informed which, I suppose may contribute to his feelings of insecurity." —Charles M. Schulz',
+            ],
+          },
+        ],
+        cardCount: 4,
+        meta: 'New',
+      },
+      {
+        id: 402,
         title: 'Geography',
         cards: [
           {
@@ -444,7 +479,7 @@ export const baseDecks = [
         meta: 'New',
       },
       {
-        id: 402,
+        id: 403,
         title: 'History',
         cards: [
           {
@@ -482,7 +517,7 @@ export const baseDecks = [
         meta: 'New',
       },
       {
-        id: 403,
+        id: 404,
         title: 'Music',
         cards: [
           {

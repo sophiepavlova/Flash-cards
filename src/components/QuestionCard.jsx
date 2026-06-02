@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 export default function QuestionCard({ currentCard }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [audioPlayer, setAudioPlayer] = useState(null);
+  // const [audioPlayer, setAudioPlayer] = useState(null);
+  const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      if (audioRef.current !== null) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   function handleNextImage() {
     currentImageIndex < currentCard.images.length - 1
@@ -13,19 +23,20 @@ export default function QuestionCard({ currentCard }) {
 
   // 🦊 When button is clicked the song plays, until it is over.
   function handlePlayAudio() {
-    if (audioPlayer === null) {
+    if (audioRef.current === null) {
       const audio = new Audio(currentCard.audio);
-      audio.play();
+
       audio.addEventListener('ended', () => {
         setIsPlaying(false);
-        setAudioPlayer(null);
+        audioRef.current = null;
       });
+      audio.play();
+      audioRef.current = audio;
       setIsPlaying(true);
-      setAudioPlayer(audio);
     } else {
-      audioPlayer.pause();
+      audioRef.current.pause();
+      audioRef.current = null;
       setIsPlaying(false);
-      setAudioPlayer(null);
     }
   }
   return (
