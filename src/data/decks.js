@@ -8,7 +8,6 @@ export const baseDecks = [
       {
         id: 101,
         title: 'React',
-        cardCount: 8,
         meta: '3 due today',
         cards: [
           {
@@ -75,7 +74,98 @@ export const baseDecks = [
             answer:
               'The virtual DOM is a lightweight JavaScript representation of the real DOM.',
           },
+          {
+            id: 9,
+            question: 'What is prop drilling in React?',
+            code: '',
+            images: [],
+            answer:
+              'Prop drilling is passing data or functions through several levels of components as props, even though some of those components do not use them. For example: App → DeckScreen → MenuList → MenuItem. If only MenuItem needs the data, the other components are just forwarding props, which can make the code harder to manage.',
+          },
+          {
+            id: 10,
+            question: 'What is component composition in React?',
+            images: [],
+            answer:
+              'Component composition: combining different components using the children prop(or explicitly defined props).',
+            answerCode: `function Modal({ children }) {
+                          return <div>{children}</div>;
+                        }`,
+            details: [
+              'Components become more flexible and reusable.',
+              'The parent decides what content is rendered.',
+              'A component does not need to know its children in advance.',
+            ],
+          },
+          {
+            id: 11,
+            question: 'When should you use component composition?',
+            images: [],
+            answer:
+              'Use component composition when you want a reusable component to display different content without changing its internal code.',
+            answerCode: `<Modal>
+                            <Error />
+                          </Modal>`,
+
+            details: [
+              'Common for layouts, modals, cards, and dialogs.',
+              'Helps reduce prop drilling.',
+              'Makes components easier to reuse across the application.',
+              'Often implemented with the children prop.',
+            ],
+          },
+          {
+            id: 12,
+            question: 'What problem does component composition fix?',
+            images: [],
+            answer:
+              'It creates highly reusable and flexible components. And it fixes props drilling(great for layouts)',
+
+            details: ['Source: Jonas, 111: component composition'],
+          },
+          {
+            id: 13,
+            question: 'What are the three main component categories in React?',
+            images: [],
+            answer:
+              'Most React components fall into one of three categories: stateless (presentational), stateful, and structural components.',
+
+            details: [
+              'Stateless (presentational) components have no state. They receive props and simply display data or content. They are usually small and reusable.',
+              'Stateful components have state and manage behavior or interactions. They can still be reusable.',
+              'Structural components represent pages, layouts, or screens. They are often the result of composition and can be large and non-reusable.',
+            ],
+          },
+          {
+            id: 14,
+            question: 'What are the three main component categories in React?',
+            images: [],
+            answer:
+              'Most React components fall into one of three categories: stateless (presentational), stateful, and structural components.',
+
+            details: [
+              'Stateless (presentational) components have no state. They receive props and simply display data or content. They are usually small and reusable.',
+              'Stateful components have state and manage behavior or interactions. They can still be reusable.',
+              'Structural components represent pages, layouts, or screens. They are often the result of composition and can be large and non-reusable.',
+            ],
+          },
+          {
+            id: 15,
+            question:
+              'What is the difference between stateless, stateful, and structural components?',
+            images: [],
+            answer:
+              'The difference is whether a component manages state, only displays data, or organizes the structure of the application.',
+
+            details: [
+              'Stateless: displays data received through props.',
+              'Stateful: stores and updates state.',
+              'Structural: combines many components into pages, layouts, or screens.',
+            ],
+          },
         ],
+
+        cardCount: 15,
       },
       {
         id: 102,
