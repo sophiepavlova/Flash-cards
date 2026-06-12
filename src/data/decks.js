@@ -773,11 +773,11 @@ export const baseDecks = [
             question: 'What flower is shown in the image?',
             code: '',
             images: [
-              '/images/Boxwood1.jpeg',
-              '/images/Boxwood2.jpeg',
-              '/images/Boxwood3.jpeg',
-              '/images/Boxwood4.jpeg',
-              '/images/Boxwood5.jpeg',
+              '/images/Boxwood_1.jpeg',
+              '/images/Boxwood_2.jpeg',
+              '/images/Boxwood_3.jpeg',
+              '/images/Boxwood_4.jpeg',
+              '/images/Boxwood_5.jpeg',
             ],
             answer: 'Boxwood',
 
