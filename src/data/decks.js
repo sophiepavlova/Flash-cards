@@ -163,9 +163,342 @@ export const baseDecks = [
               'Structural: combines many components into pages, layouts, or screens.',
             ],
           },
+          {
+            id: 16,
+            question:
+              'How do you quickly jump to a component definition in VS Code?',
+            images: [],
+            answer:
+              'Hover over the component name and Cmd+Click it to jump directly to where the component is defined.',
+
+            details: [
+              'This feature is called "Go to Definition".',
+              'It works for components, functions, variables, and many other symbols.',
+              'To return, use the Back navigation shortcut or the back arrow in VS Code.',
+              'Useful when exploring unfamiliar React codebases.',
+            ],
+          },
+          {
+            id: 17,
+            question: 'How do you set default props in a React component?',
+            images: [],
+            answer:
+              'Use default values when destructuring props in the component parameters.',
+
+            answerCode: `function Button({ text = 'Click me' }) {
+                            return <button>{text}</button>;
+                          }`,
+
+            details: [
+              'The default value is used when the prop is not provided.',
+              'If text is passed to the component, the passed value overrides the default.',
+              'Default values are commonly used for labels, placeholders, and optional settings.',
+            ],
+          },
+          {
+            id: 18,
+            question: 'When are default prop values used?',
+            images: [],
+            answer:
+              'Default values are used when a prop is undefined or not passed to the component.',
+
+            answerCode: `<Button />
+                        <Button text="Save" />`,
+
+            details: [
+              'The first Button uses the default value.',
+              'The second Button uses the provided value.',
+              'Default values help make components easier to reuse.',
+            ],
+          },
+          {
+            id: 19,
+            question: 'How does the && operator work in JavaScript and React?',
+            images: [],
+            answer:
+              'The && operator renders the value on the right only if the value on the left is truthy.',
+
+            answerCode: `{isLoggedIn && <Profile />}`,
+
+            details: [
+              'If isLoggedIn is true, the Profile component is rendered.',
+              'If isLoggedIn is false, nothing is rendered.',
+              'This pattern is commonly used for conditional rendering.',
+            ],
+          },
+          {
+            id: 20,
+            question: 'How does the || operator work in JavaScript and React?',
+            images: [],
+            answer:
+              'The || operator returns the first truthy value. It is often used to provide a fallback value.',
+
+            answerCode: `const username = userName || 'Guest';`,
+
+            details: [
+              'If userName has a value, it is used.',
+              'If userName is falsy, "Guest" is used instead.',
+              'Common use cases include default text, images, and settings.',
+            ],
+          },
+          {
+            id: 21,
+            question:
+              'What is React state, why do we use useState, and what does it return?',
+            images: [],
+            answer:
+              'State is data that can change over time and affects what is displayed in the UI. React stores state between re-renders, so values are not reset when a component renders again.',
+
+            details: [
+              'useState(initialValue) returns an array with:',
+              'The current state value.',
+              'A setter function used to update that value.',
+              'When the setter function is called, React updates the state and re-renders the component.',
+            ],
+          },
+          {
+            id: 22,
+            question: 'What is the mental model for React state?',
+            images: [],
+            answer:
+              'State is data that changes over time and affects the UI. React stores it between re-renders. useState gives us the current value and a setter function. Calling the setter updates the state and triggers a re-render.',
+
+            details: [],
+          },
+          {
+            id: 22,
+            question:
+              'Jonas: Tell what a component is and the component instance as well',
+            images: [],
+            answer:
+              '🧩 A component (example: function Question() {}) is like a blueprint for a piece of UI that will eventually exist on the screen.',
+
+            details: [
+              'When we “use” a component (like this: <Question />), React creates a 🚩component instance, which is like an actual physical manifestation of a component, containing props, state, and more. A component instance, when rendered, will return a 🚩React element.',
+            ],
+          },
+          {
+            id: 23,
+            question: 'Jonas: What does “Rendering” really mean in React?',
+            images: [],
+            answer:
+              '☎️ 🚩“Rendering” only means calling component functions and calculating what DOM elements need to be inserted, deleted, or updated. It has nothing to do with writing to the DOM. Therefore, each time a component instance is rendered and re-rendered, the function is called again.',
+
+            details: [],
+          },
+          {
+            id: 24,
+            question: 'Jonas: What causes the render?',
+            images: [],
+            answer:
+              '🔄 Only the 🚩initial app render and 🚩state updates can cause a render, which happens for the 🚩entire application, not just one single component.',
+
+            details: [],
+          },
+          {
+            id: 25,
+            question:
+              'Jonas: how does rerender effect the children of the component?',
+            images: [],
+            answer:
+              '👨‍👩‍👧 When a component instance gets re-rendered, 🚩all its children will get re-rendered as well. This doesn’t mean that all children will get updated in the DOM, thanks to 🚩reconciliation, which checks which elements have actually changed between two renders. But all this re-rendering can still have an impact on performance (more on that later in the course 👉).',
+
+            details: [],
+          },
+          {
+            id: 25,
+            question: 'Jonas: What is diffing?',
+            images: [],
+            answer:
+              "🧬 Diffing is how React decides which DOM elements need to be added or modified. If, between renders, a certain React element 🚩stays at the same position in the element tree🔺, the corresponding DOM element and component state will stay the same. If the element 🚩changed to a different position, or if it's a 🚩different element type, the DOM element and state will be destroyed.",
+
+            details: [],
+          },
+          {
+            id: 26,
+            question: 'Jonas: What is the role of a key prop?',
+            images: [],
+            answer:
+              '🔑 🚩Giving elements a key prop allows React to distinguish between multiple component instances. When a key stays the same across renders🔺, the element is kept in the DOM. This is why we need to use keys in lists. 🚩When we change the key between renders🔺, the DOM element will be destroyed and rebuilt. We use this as a 🚩trick to reset state.',
+
+            details: [],
+          },
+          {
+            id: 27,
+            question:
+              'Jonas: Why should you never declare a new component inside another component?',
+            images: [],
+            answer:
+              '🪆 🚩Never declare a new component inside another component!🔺 Doing so will re-create the nested component every time the parent component re-renders. React will always see the nested component as 🚩new, and therefore 🚩reset its state each time the parent state is updated.',
+
+            details: [],
+          },
+          {
+            id: 28,
+            question:
+              'Jonas: Where the side effects are allowed and where they are not allowed?',
+            images: [],
+            answer:
+              '🔮 The logic that produces JSX output for a component instance 🚩("render logic") is 🚩not allowed to produce any side effects🔺: no API calls, no timers, no object or variable mutations, no state updates. 🚩Side effects are allowed in event handlers and useEffect (next section 👉).',
+
+            details: [],
+          },
+          {
+            id: 29,
+            question: 'Jonas: What librarie updates the DOM?',
+            images: [],
+            answer:
+              '📱 🚩The DOM is updated in the commit phase, but not by React, but by a “renderer” called ReactDOM.🔺 That is why we always need to include both libraries in a React web app project. We can use other renderers to use React on different platforms, for example to build mobile or native apps.',
+
+            details: [],
+          },
+          {
+            id: 31,
+            question:
+              'Jonas: 🤷‍♂️Tell me about synthetic event object and bubbling?',
+            images: [],
+            answer:
+              '🌐 When using events in event handlers, we get access to a synthetic event object, not the browser_s native object, so that events work the same way across all browsers. The difference is that most synthetic events bubble, including focus, blur, and change, which do not bubble as native browser events. Only the scroll event does not bubble.',
+
+            details: [],
+          },
+          {
+            id: 32,
+            question: 'Jonas: Is React a framework?',
+            images: [],
+            answer:
+              '🛠️ React is a library, not a framework. This means that you can assemble your application using your favorite third-party libraries. The downside is that you need to find and learn all these additional libraries. No problem, as you will learn about the most commonly used libraries in this course.',
+
+            details: [],
+          },
+          {
+            id: 33,
+            question:
+              'Jonas: Name 3 stages of a component (instance) life cycle?',
+            images: [],
+            answer:
+              'Mount/Initial render -> Re-render (not always happens) -> Unmount',
+
+            details: [
+              'on mount:component instace is rendered for the first time; fresh state and props are created',
+              'And during the unmount the component instance is destroyed and removed; and state and props are destroyed',
+            ],
+          },
+          {
+            id: 34,
+            question:
+              'Jonas: When does re-render of a component instance happen?',
+            images: [],
+            answer:
+              '👉🏻 State changes; 👉🏻 Props change; 👉🏻 Parent re-renders; 👉🏻 Context changes',
+
+            details: [],
+          },
+          {
+            id: 35,
+            question: 'What is the idea behind the useEffect hook?',
+            images: [],
+            answer:
+              'useEffect gives us a place to safely run side effects, such as fetching data from an API, setting up subscriptions, or interacting with the DOM.',
+
+            details: [
+              "useEffect does not return anything, so we don't store it in a variable",
+              'We pass a function inside, which contains a code we want to run for the desired side effects',
+              "The function is called 'effect'",
+              'Example: useEffect(function(){fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=harry potter`).then((res) => res.json()).then((data) => setMovies(data.Search));},[])',
+              'and this function will be executed at a certain point in time',
+              'The second part of the function is the 🚩dependency array',
+              '🚩[] this dependecy array is empty, which means that the function will only run on mount',
+            ],
+          },
+          {
+            id: 36,
+            question: 'What is a side effect in React?',
+            images: [],
+            answer:
+              'A side effect is basically any "interaction between a React component and the world outside the component. We can also think of a side effect as "code that actually does something". Examples:',
+
+            details: [
+              'Data fetching',
+              'Setting up subscriptions',
+              "Setting up timers'",
+              'Manually accessing the DOM)',
+            ],
+          },
+          {
+            id: 37,
+            question:
+              'Side effects can be produced in event handlers or in effects (useEffect), but never during rendering. Where can side effects be produced?',
+            images: [],
+            answer:
+              'We can do it using either event handlers or effects (useEffect)',
+
+            details: [
+              'With the event handler the effect is triggered by some event',
+              'With the useEffect the effect is triggered at some stated moment, defined in the dependency array',
+              'If possible, use the event handler',
+            ],
+          },
+          {
+            id: 38,
+            question: 'When can stale state occur?',
+            images: [],
+            answer:
+              'When asynchronous code, event handlers, or multiple state updates rely on a captured state value instead of the latest state. Use the updater function form of setState to avoid it.',
+
+            details: [],
+          },
+          {
+            id: 39,
+            question:
+              'Jonas: How can ypu think about useEffect in a way of its similarity to event listener?',
+            images: [],
+            answer:
+              'It is listening for one dependency to change. Whenever the dependency changes, it will execute the effect again',
+
+            details: [],
+          },
+          {
+            id: 40,
+            question:
+              'Jonas: How is useEffect truly a synchronization mechanism?',
+            images: [],
+            answer:
+              'It is a mechanism to synchronize effects with the state of the application',
+
+            details: [],
+          },
+          {
+            id: 41,
+            question: 'What happens when a useEffect dependency changes?',
+            images: [],
+            answer:
+              'When a dependency (state or props) changes, React re-renders the component and re-executes any effects that depend on that value.',
+
+            details: [
+              'Dependencies are values listed in the dependency array.',
+              'A dependency change causes a component re-render.',
+              'Effects and the component lifecycle are closely connected.',
+              'The dependency array controls when an effect runs again.',
+            ],
+          },
+          {
+            id: 42,
+            question:
+              'What is the difference between useEffect(fn, [x, y, z]), useEffect(fn, []), and useEffect(fn)?',
+            images: [],
+            answer:
+              'The dependency array determines when an effect is executed.',
+
+            details: [
+              'useEffect(fn, [x, y, z]) synchronizes with x, y, and z. It runs on mount and whenever one of those dependencies changes.',
+              'useEffect(fn, []) synchronizes with no state or props. It runs only once when the component mounts.',
+              'useEffect(fn) synchronizes with everything. It runs after every render and is usually not what you want.',
+            ],
+          },
         ],
 
-        cardCount: 15,
+        cardCount: 42,
       },
       {
         id: 102,
@@ -333,8 +666,133 @@ export const baseDecks = [
               'There’s a thing called “mad honey” made from rhododendron nectar that historically caused hallucinations and poisoning in some regions 😭',
             ],
           },
+          {
+            id: 9,
+            question: 'What flower is shown in the image?',
+            code: '',
+            images: [
+              '/images/JapaneseSpirea_1.jpeg',
+              '/images/JapaneseSpirea_2.jpeg',
+              '/images/JapaneseSpirea_3.jpeg',
+            ],
+            answer: 'Japanese Spirea',
+
+            facts: [
+              '🦋 Butterflies love spirea.',
+              '🌸 Each fluffy pink cluster is actually made up of dozens or hundreds of tiny flowers.',
+              '✂️ Landscapers love it because it is very forgiving. You can prune it hard and it usually bounces back.',
+              "🍃 The yellow-green leaves suggest it may be a cultivar like 'Goldflame' or 'Goldmound', which are especially popular in BC.",
+            ],
+          },
+          {
+            id: 10,
+            question: 'What flower is shown in the image?',
+            code: '',
+            images: [
+              '/images/WoodSage_1.jpeg',
+              '/images/WoodSage_2.jpeg',
+              '/images/WoodSage_3.jpeg',
+            ],
+            answer: 'Wood Sage (Salvia)',
+
+            facts: [
+              'Salvia: name comes from the Latin salvare, meaning "to heal" or "to save.',
+              'It is related to kitchen sage, but usually grown for flowers rather than cooking.',
+              'Bumblebees especially love salvias because the flowers are rich in nectar.',
+              'These plants evolved in hot, sunny, relatively dry environments',
+              'If gardeners cut the spent flower spikes back after the first bloom, many varieties will flower again later in the season.',
+            ],
+          },
+          {
+            id: 11,
+            question: 'What flower is shown in the image?',
+            code: '',
+            images: [
+              '/images/French Marigold_1.jpeg',
+              '/images/French Marigold_2.jpeg',
+              '/images/French Marigold_3.jpeg',
+              '/images/French Marigold_4.jpeg',
+            ],
+            answer: 'French Marigold',
+
+            facts: [
+              'Despite the name "French marigold," they are form Mexico originally',
+              'People plant them to repel pests.',
+              'That vivid orange comes from pigments called carotenoids, the same family of compounds that make carrots orange.',
+              'Bees and butterflies will use them, though they are not quite the bee magnets',
+              'Unlike the salvia and spirea, these are usually planted fresh each year',
+            ],
+          },
+          {
+            id: 12,
+            question: 'What flower is shown in the image?',
+            code: '',
+            images: [
+              '/images/Rose_Campion_1.jpeg',
+              '/images/Rose_Campion_2.jpeg',
+              '/images/Rose_Campion_3.jpeg',
+              '/images/Rose_Campion_4.jpeg',
+            ],
+            answer: 'Rose Campion (Silene coronaria)',
+
+            facts: [
+              'Горицвет корончатый or Лихнис корончатый',
+              'The leaves are covered in tiny hairs, giving the whole plant a silvery, almost velvety look.',
+              'It loves poor, dry soil. In fact, it often performs worse in rich, heavily watered garden beds.',
+              '🦋 Butterflies and bees visit it frequently.',
+              "It self-seeds enthusiastically. Gardeners often joke that once you have rose campion, you'll keep finding baby rose campions in new places.",
+              'The genus name Silene comes from a character in Greek mythology named Silenus.',
+            ],
+          },
+          {
+            id: 13,
+            question: 'What flower is shown in the image?',
+            code: '',
+            images: [
+              '/images/Red_Tip_Photinia_1.jpeg',
+              '/images/Red_Tip_Photinia_2.jpeg',
+              '/images/Red_Tip_Photinia_3.jpeg',
+              '/images/Red_Tip_Photinia_4.jpeg',
+              '/images/Red_Tip_Photinia_5.jpeg',
+              '/images/Red_Tip_Photinia_6.jpeg',
+            ],
+            answer: 'Red Tip Photinia (Photinia × fraseri)',
+
+            facts: [
+              'Russian: Фотиния Фрейзера (Photinia fraseri)',
+              'Commonly trimmed into hedges and large shrubs',
+              'Older leaves turn dark green while new leaves emerge brilliant red.',
+              "The cultivar 'Red Robin' is one of the most popular hedge plants in the world.",
+              '🌸 In spring it usually produces clusters of small white flowers, though many landscapers trim it before flowering because they grow it mainly for the foliage.',
+              '🐦 Later it can produce small red berries that birds enjoy.',
+              '✂️ If pruned regularly, it keeps producing fresh red leaves, which is why hedges of photinia often stay colorful all season.',
+            ],
+          },
+          {
+            id: 14,
+            question: 'What flower is shown in the image?',
+            code: '',
+            images: [
+              '/images/Boxwood1.jpeg',
+              '/images/Boxwood2.jpeg',
+              '/images/Boxwood3.jpeg',
+              '/images/Boxwood4.jpeg',
+              '/images/Boxwood5.jpeg',
+            ],
+            answer: 'Boxwood',
+
+            facts: [
+              'Russian: Самшит мелколистный (Japanese Boxwood)',
+              'Type: Evergreen shrub 🌳',
+              'tiny glossy evergreen leaves, Dense branching structure',
+              '🏰 Boxwood has been used in formal gardens for centuries. Think English manor houses, French palace gardens, and maze hedges.',
+              '✂️ It tolerates pruning exceptionally well, which is why landscapers love shaping it into neat geometric forms.',
+              '🐢 It grows fairly slowly, which helps it keep its shape.',
+              '🌱 The wood is extremely dense. Historically it was used for carving, chess pieces, rulers, and musical instruments.',
+            ],
+          },
         ],
-        cardCount: 8,
+        cardCount: 13,
         meta: 'New',
       },
 
@@ -515,7 +973,7 @@ export const baseDecks = [
             ],
           },
           {
-            id: 1,
+            id: 2,
             question: 'Who is this?',
             code: '',
             images: ['/images/linus.avif'],
@@ -526,6 +984,36 @@ export const baseDecks = [
               'Despite his run-ins with cantankerous Lucy, and the fact no one understands why he carries a security blanket, Linus remains delightfully hopeful. He’s certain that this year, the Great Pumpkin will appear…he just knows it… ',
               'DID YOU KNOW: Linus wore glasses for a short time. Snoopy constantly stole them to torment him.',
               '"Linus, my serious side, is the house intellectual, bright, well-informed which, I suppose may contribute to his feelings of insecurity." —Charles M. Schulz',
+            ],
+          },
+          {
+            id: 3,
+            question: 'Who is this?',
+            code: '',
+            images: ['/images/Sally.avif'],
+            answer: 'Sally',
+            facts: [
+              'FIRST APPEARANCE: August 23, 1959',
+              ' Sally is inquisitive and demands answers for everything. Why do kids have to go to school? Why not dessert first? When faced with a question she can’t answer, she tackles the problem with a classic philosophy: “Who cares?!” Her heart skips a beat when she sees her “Sweet Babboo,” Linus. And she knows that even though she may not understand him, she can always turn to her big brother, Charlie Brown, for help and encouragement.',
+
+              'DID YOU KNOW: For 6 months, Sally experienced amblyopia ("lazy eye") and wore an eye patch.',
+
+              '"Sally is the complete pragmatist. There is a certain charm when she fractures the language: ‘By golly, if any centimeters come in this room, I’ll step on them!"  —Charles M. Schulz',
+            ],
+          },
+          {
+            id: 4,
+            question: 'Who is this?',
+            code: '',
+            images: ['/images/Shroeder2.avif', '/images/schroeder.jpg'],
+            answer: 'Schroeder',
+            facts: [
+              'FIRST APPEARANCE: May 30, 1951',
+              'A moody musical genius, Schroeder has been playing the piano since before he could walk. He also enjoys baseball and being with friends, but he’s never happier than when playing a Beethoven piece—even if the black keys of his piano are just painted on. If only he could get Lucy to leave him alone long enough to make it through the first movement of the sonata!',
+
+              "DID YOU KNOW: Schulz chose Beethoven as Schroeder's muse because he believed words beginning with 'B' sounded funny...like blockhead and beagle.",
+
+              '"I kind of like Schroeder. He’s fairly down to earth, but he has his problems too. He has to play on the painted black piano keys, and he thinks Beethoven was the first President of the United States." —Charles M. Schulz',
             ],
           },
         ],
