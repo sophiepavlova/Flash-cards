@@ -496,9 +496,47 @@ export const baseDecks = [
               'useEffect(fn) synchronizes with everything. It runs after every render and is usually not what you want.',
             ],
           },
+          {
+            id: 43,
+            question:
+              'What does this code do?\n\nconst isWatched = watched.map((mov) => mov.imdbID).includes(selectedId);',
+            images: [],
+            answer:
+              'It checks whether the movie with the selected ID exists in the watched array.',
+            details: [
+              'map() creates a new array containing only the imdbIDs of all watched movies.',
+              'includes(selectedId) checks whether the selected ID is in that array.',
+              'The result is a boolean: true if the movie was watched, false otherwise.',
+            ],
+          },
+          {
+            id: 44,
+            question: 'What is a controlled element in React?',
+            images: [],
+            answer:
+              'A controlled element is a form element whose value is controlled by React state.',
+            details: [
+              'The displayed value comes from a state variable.',
+              'The state is updated through an event handler, usually onChange.',
+              'React becomes the single source of truth for the element value.',
+              'Common examples are inputs, textareas, and select elements.',
+            ],
+          },
+          {
+            id: 45,
+            question: 'How do you create a controlled input in React?',
+            images: [],
+            answer:
+              'Bind the input value to state and update that state in an onChange handler.',
+            details: [
+              'value={query} makes React control the input value.',
+              'onChange={(e) => setQuery(e.target.value)} updates the state.',
+              'The input always displays the current state value.',
+            ],
+          },
         ],
 
-        cardCount: 42,
+        cardCount: 45,
       },
       {
         id: 102,
