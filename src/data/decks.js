@@ -534,9 +534,17 @@ export const baseDecks = [
               'The input always displays the current state value.',
             ],
           },
+          {
+            id: 46,
+            question: 'How do you use await inside useEffect?',
+            images: [],
+            answer:
+              'Create an async function inside the effect and call it, because the effect callback itself cannot be async.',
+            details: [],
+          },
         ],
 
-        cardCount: 45,
+        cardCount: 46,
       },
       {
         id: 102,
@@ -811,11 +819,11 @@ export const baseDecks = [
             question: 'What flower is shown in the image?',
             code: '',
             images: [
-              '/images/Boxwood_1.jpeg',
-              '/images/Boxwood_2.jpeg',
-              '/images/Boxwood_3.jpeg',
-              '/images/Boxwood_4.jpeg',
-              '/images/Boxwood_5.jpeg',
+              '/images/Japanese_Boxwood_1.jpeg',
+              '/images/Japanese_Boxwood_2.jpeg',
+              '/images/Japanese_Boxwood_3.jpeg',
+              '/images/Japanese_Boxwood_4.jpeg',
+              '/images/Japanese_Boxwood_5.jpeg',
             ],
             answer: 'Boxwood',
 
